@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <process id="process_1" name="Customer Email Triage" isExecutable="true">
+    <startEvent id="start_0377055d" name="Process Started"/>
+    <task id="task_935f1ed1" name="Receive customer support email."/>
+    <exclusiveGateway id="gateway_96586cf0" name="the issue is billing-related?"/>
+    <task id="task_00dbd50f" name="assign to Billing Queue."/>
+    <task id="task_5d32e056" name="assign to General Support Queue."/>
+    <task id="task_9ac492ea" name="Send acknowledgment email to customer."/>
+    <task id="task_8b3c7052" name="Close the triage step."/>
+    <endEvent id="end_cf7b28d3" name="Process Completed"/>
+    <sequenceFlow id="flow_5b505de0" sourceRef="start_0377055d" targetRef="task_935f1ed1"/>
+    <sequenceFlow id="flow_8779c7bf" sourceRef="task_935f1ed1" targetRef="gateway_96586cf0"/>
+    <sequenceFlow id="flow_97210db4" sourceRef="gateway_96586cf0" targetRef="task_00dbd50f" name="Yes"/>
+    <sequenceFlow id="flow_5d144452" sourceRef="gateway_96586cf0" targetRef="task_5d32e056" name="No"/>
+    <sequenceFlow id="flow_88a95296" sourceRef="task_00dbd50f" targetRef="task_9ac492ea"/>
+    <sequenceFlow id="flow_3b342043" sourceRef="task_5d32e056" targetRef="task_9ac492ea"/>
+    <sequenceFlow id="flow_de983f83" sourceRef="task_9ac492ea" targetRef="task_8b3c7052"/>
+    <sequenceFlow id="flow_f3193bbb" sourceRef="task_8b3c7052" targetRef="end_cf7b28d3"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process_1">
+      <bpmndi:BPMNShape id="start_0377055d_di" bpmnElement="start_0377055d">
+        <dc:Bounds x="150" y="200" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="task_935f1ed1_di" bpmnElement="task_935f1ed1">
+        <dc:Bounds x="300" y="200" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="gateway_96586cf0_di" bpmnElement="gateway_96586cf0">
+        <dc:Bounds x="450" y="200" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="task_00dbd50f_di" bpmnElement="task_00dbd50f">
+        <dc:Bounds x="600" y="150" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="task_5d32e056_di" bpmnElement="task_5d32e056">
+        <dc:Bounds x="600" y="250" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="task_9ac492ea_di" bpmnElement="task_9ac492ea">
+        <dc:Bounds x="750" y="200" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="task_8b3c7052_di" bpmnElement="task_8b3c7052">
+        <dc:Bounds x="900" y="200" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_cf7b28d3_di" bpmnElement="end_cf7b28d3">
+        <dc:Bounds x="1050" y="200" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_5b505de0_di" bpmnElement="flow_5b505de0"/>
+      <bpmndi:BPMNEdge id="flow_8779c7bf_di" bpmnElement="flow_8779c7bf"/>
+      <bpmndi:BPMNEdge id="flow_97210db4_di" bpmnElement="flow_97210db4"/>
+      <bpmndi:BPMNEdge id="flow_5d144452_di" bpmnElement="flow_5d144452"/>
+      <bpmndi:BPMNEdge id="flow_88a95296_di" bpmnElement="flow_88a95296"/>
+      <bpmndi:BPMNEdge id="flow_3b342043_di" bpmnElement="flow_3b342043"/>
+      <bpmndi:BPMNEdge id="flow_de983f83_di" bpmnElement="flow_de983f83"/>
+      <bpmndi:BPMNEdge id="flow_f3193bbb_di" bpmnElement="flow_f3193bbb"/>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

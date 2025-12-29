@@ -1,0 +1,8 @@
+Customer Support Email Triage SOP
+
+1. Receive customer support email.
+2. Check if the issue is billing-related.
+3. If yes, assign to Billing Queue.
+4. If no, assign to General Support Queue.
+5. Send acknowledgment email to customer.
+6. Close the triage step.
